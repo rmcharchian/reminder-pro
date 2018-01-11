@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { addReminder } from '../actions';
 
 
@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     addReminder(){
-        console.log('this.', this);
+        this.props.addReminder(this.state.text);
     }
 
     render() {
@@ -44,9 +44,9 @@ class App extends Component {
         )
     }
 }
+// replaced with {addReminder} below.  Wouldn't work until I also took out import bindActionCreators above
+// function mapDispatchToProps(dispatch) {
+//     return bindActionCreators ({addReminder}, dispatch);
+// }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators ({addReminder}, dispatch);
-}
-
-export default  connect (null, mapDispatchToProps)(App);
+export default  connect (null, { addReminder })(App);
