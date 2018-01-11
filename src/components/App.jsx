@@ -6,7 +6,6 @@ import { addReminder } from '../actions';
 
 
 
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +15,7 @@ class App extends Component {
     }
 
     addReminder(){
-        console.log('this.state', this.state);
+        console.log('this.', this);
     }
 
     render() {
@@ -50,4 +49,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators ({addReminder}, dispatch);
 }
 
-export default connect(null, mapDispatchToProps) (App);
+export default  connect (null, mapDispatchToProps)(App);
